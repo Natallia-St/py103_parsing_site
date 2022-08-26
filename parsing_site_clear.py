@@ -94,14 +94,11 @@ def parsing_av_site(link_):
         if total_info_dict[key][2]:
             key1 = "describe"
             total_info_dict[key][2] = {key1: total_info_dict[key][2]}
-    print(total_info_dict)
     print("Cловарь (отсортированный по цене в долл)", total_info_dict)
     # Выгрузка словаря в json
     data = total_info_dict
     with open("cars_info.json", "w", encoding='UTF-8') as file:
         json.dump(data, file)
-    with open("input.json", "w", encoding='UTF-8') as file:
-        json.dump(data, file, ensure_ascii=False)
     # Выгрузка списка в csv, для ясности добавлено наименование валюты для числа
     for i in total_info_spis_sort:
         i[1] = str(i[1]) + "," + "rub"
